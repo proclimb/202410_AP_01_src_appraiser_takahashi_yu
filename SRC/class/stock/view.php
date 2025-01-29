@@ -292,7 +292,7 @@ function subStockEditView($param)
 			</tr>
 			<tr>
 				<th>距離</th>
-				<td>
+				<!-- <td>
 					<?php
 
 					if (!$param["stockNo"]) {
@@ -301,6 +301,22 @@ function subStockEditView($param)
 					for ($i = 0; $i < 4; $i++) {
 						$check = '';
 						if (($i + 1) == $param["distance"]) {
+							$check = 'checked = "checked"';
+						}
+					?>
+						<input type="radio" name="distance" value="<?php print $i + 1; ?>" <?php print $check; ?> /> <?php print fnDistanceName($i); ?>
+					<?php
+					}
+					?>
+				</td> -->
+				<td>
+					<?php
+					if (!$param["stockNo"]) {
+						$param["distance"] = 1;
+					}
+					for ($i = 0; $i < 4; $i++) {
+						$check = '';
+						if (($param["distance"] - 1) == $i) {
 							$check = 'checked = "checked"';
 						}
 					?>
@@ -363,7 +379,7 @@ function subStockEditView($param)
 		</table>
 
 		<a href="javascript:fnStockEditCheck();"><img src="./images/<?php print $param["btnImage"] ?>" /></a>　
-		<a href="javascript:form.act.value='stockEditComplete';form.submit();"><img src="./images/btn_return.png" /></a>
+		<a href="javascript:form.act.value='stockSearch';form.submit();"><img src="./images/btn_return.png" /></a>
 		<?php
 		if ($param["stockNo"]) {
 		?>
