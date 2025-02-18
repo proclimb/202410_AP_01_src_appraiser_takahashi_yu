@@ -54,25 +54,25 @@ function subArticle()
 					<th>除外</th>
 					<td><input type="checkbox" name="sDel" value="0" <?php if ($sDel == 0) print ' checked="checked"' ?> /></td>
 					<th>備考</th>
-					<td><input type="text" name="sArticleNote" value="<?php print $sArticleNote ?>" size="50" /></td>
+					<td><input type="text" name="sArticleNote" value="<?php print htmlspecialchars($sArticleNote) ?>" size="50" /></td>
 				</tr>
 				<tr>
 					<th>物件名</th>
-					<td><input type="text" name="sArticle" value="<?php print $sArticle ?>" size="50" /></td>
+					<td><input type="text" name="sArticle" value="<?php print htmlspecialchars($sArticle) ?>" size="50" /></td>
 					<th>キーBox番号</th>
-					<td><input type="text" name="sKeyBox" value="<?php print $sKeyBox ?>" size="30" /></td>
+					<td><input type="text" name="sKeyBox" value="<?php print htmlspecialchars($sKeyBox) ?>" size="30" /></td>
 				</tr>
 				<tr>
 					<th>部屋番号</th>
-					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
+					<td><input type="text" name="sRoom" value="<?php print htmlspecialchars($sRoom) ?>" size="30" /></td>
 					<th>3Dパース</th>
-					<td><input type="text" name="sDrawing" value="<?php print $sDrawing ?>" size="30" /></td>
+					<td><input type="text" name="sDrawing" value="<?php print htmlspecialchars($sDrawing) ?>" size="30" /></td>
 				</tr>
 				<tr>
 					<th>鍵場所</th>
-					<td><input type="text" name="sKeyPlace" value="<?php print $sKeyPlace ?>" size="30" /></td>
+					<td><input type="text" name="sKeyPlace" value="<?php print htmlspecialchars($sKeyPlace) ?>" size="30" /></td>
 					<th>営業担当者</th>
-					<td><input type="text" name="sSellCharge" value="<?php print $sSellCharge ?>" /></td>
+					<td><input type="text" name="sSellCharge" value="<?php print htmlspecialchars($sSellCharge) ?>" /></td>
 				</tr>
 			</table>
 		</div>
@@ -112,13 +112,13 @@ function subArticle()
 			$i = 0;
 			while ($row = mysqli_fetch_array($res)) {
 				$articleNo   = $row["ARTICLENO"];
-				$article     = $row["ARTICLE"];
-				$room        = $row["ROOM"];
-				$keyPlace    = $row["KEYPLACE"];
-				$articleNote =  $row["ARTICLENOTE"];
-				$keyBox      = $row["KEYBOX"];
-				$drawing     = $row["DRAWING"];
-				$sellCharge  = $row["SELLCHARGE"];
+				$article     = htmlspecialchars($row["ARTICLE"]);
+				$room        = htmlspecialchars($row["ROOM"]);
+				$keyPlace    = htmlspecialchars($row["KEYPLACE"]);
+				$articleNote = htmlspecialchars($row["ARTICLENOTE"]);
+				$keyBox      = htmlspecialchars($row["KEYBOX"]);
+				$drawing     = htmlspecialchars($row["DRAWING"]);
+				$sellCharge  = htmlspecialchars($row["SELLCHARGE"]);
 			?>
 				<tr>
 					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $articleNo ?>';form.submit();"><?php print $article ?></a></td>
@@ -218,35 +218,35 @@ function subArticleEdit()
 			</tr>
 			<tr>
 				<th>物件名<span class="red">（必須）</span></th>
-				<td><input type="text" name="article" value="<?php print $article ?>" /></td>
+				<td><input type="text" name="article" value="<?php print htmlspecialchars($article) ?>" /></td>
 			</tr>
 			<tr>
 				<th>部屋番号</th>
-				<td><input type="text" name="room" value="<?php print $room ?>" /></td>
+				<td><input type="text" name="room" value="<?php print htmlspecialchars($room) ?>" /></td>
 			</tr>
 			<tr>
 				<th>鍵場所</th>
-				<td><textarea name="keyPlace" cols="50" rows="10"><?php print $keyPlace ?></textarea></td>
+				<td><textarea name="keyPlace" cols="50" rows="10"><?php print htmlspecialchars($keyPlace) ?></textarea></td>
 			</tr>
 			<tr>
 				<th>住所</th>
-				<td><input type="text" name="address" value="<?php print $address ?>" /></td>
+				<td><input type="text" name="address" value="<?php print htmlspecialchars($address) ?>" /></td>
 			</tr>
 			<tr>
 				<th>備考</th>
-				<td><textarea name="articleNote" cols="50" rows="10"><?php print $articleNote ?></textarea></td>
+				<td><textarea name="articleNote" cols="50" rows="10"><?php print htmlspecialchars($articleNote) ?></textarea></td>
 			</tr>
 			<tr>
 				<th>キーBox番号</th>
-				<td><input type="text" name="keyBox" value="<?php print $keyBox ?>" /></td>
+				<td><input type="text" name="keyBox" value="<?php print htmlspecialchars($keyBox) ?>" /></td>
 			</tr>
 			<tr>
 				<th>3Dパース</th>
-				<td><input type="text" name="drawing" value="<?php print $drawing ?>" /></td>
+				<td><input type="text" name="drawing" value="<?php print htmlspecialchars($drawing) ?>" /></td>
 			</tr>
 			<tr>
 				<th>営業担当者</th>
-				<td><input type="text" name="sellCharge" value="<?php print $sellCharge ?>" /></td>
+				<td><input type="text" name="sellCharge" value="<?php print htmlspecialchars($sellCharge) ?>" /></td>
 			</tr>
 		</table>
 
